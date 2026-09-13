@@ -93,12 +93,12 @@ UKUPNO_MOGUCIH_KOMBINACIJA = math.comb(
 )
 
 LOTO_CSV = Path(
-    "/Users/4c/Desktop/GHQ/data/"
+    "/data/"
     "loto7_4684_k73_loto_2964.csv"
 )
 
 LOTO_PLUS_CSV = Path(
-    "/Users/4c/Desktop/GHQ/data/"
+    "/data/"
     "loto7_4684_k73_loto_plus_1720.csv"
 )
 
