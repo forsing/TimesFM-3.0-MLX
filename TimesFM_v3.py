@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from __future__ import annotations
 
 """
 Apple Silicon: MLX backend
@@ -37,8 +38,6 @@ Uče se samo završne težine različitih dužina konteksta.
 Nema budućih kovarijata jer njihove stvarne buduće vrednosti nisu poznate.
 Time se sprečava curenje budućih informacija.
 """
-
-from __future__ import annotations
 
 import math
 import random
@@ -1903,7 +1902,322 @@ if __name__ == "__main__":
 
 
 """
+########################################################################################
+LOTO 7/39 — TIMESFM 3.0 MLX FINAL ZA APPLE SILICON
+########################################################################################
+Seed:                              39
+Model:                             google/timesfm-3.0-pytorch
+Backend:                           MLX-native
+MLX paket:                         32
+TimesFM horizont:                  1
+TimesFM Z-normalizacija:           uključena
+TimesFM padding:                   edge
+Simetrično prosečavanje:           isključeno
+Teorijska stopa broja:             0.179487179
+Teorijsko očekivanje pogodaka:     1.256410256
+Ukupno mogućih kombinacija:        15,380,937
+Učitavanje TimesFM 3.0 MLX modela...
+config.json: 100%|█████████████████████████████████████████████| 1.27k/1.27k [00:00<00:00, 3.45MB/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+model.safetensors: downloading bytes: ██████████████████████████████████████████| 1.25GB, 41.1MB/s  
+model.safetensors: reconstructing file: 100%|██████████████████████████| 1.32GB / 1.32GB, 84.4MB/s  
+Model učitan za 32.13 sekundi.
 
+========================================================================================
+Obrada: Loto
+========================================================================================
+CSV: /data/loto7_4684_k73_loto_2964.csv
+Broj redova: 2,964
+Prvi red se tretira kao najstariji.
+Poslednji red se tretira kao najnoviji.
+Pravljenje 39 binarnih, gap i EWMA serija...
+
+Razvojni walk-forward koraci: 2,608
+Zaključani holdout koraci:     100
+
+----------------------------------------------------------------------------------------
+Loto — PUNI EXPANDING WALK-FORWARD
+----------------------------------------------------------------------------------------
+  TimesFM prognoze: 10,432/10,432
+
+Walk-forward rezultat
+---------------------
+Broj provera:                 2,608
+Prosečan broj pogodaka:       1.256135
+Medijana pogodaka:            1.00
+Najmanje pogodaka:            0
+Najviše pogodaka:             6
+Potpuno tačnih predikcija:    0
+MAE:                          0.294540001
+Brier skor:                   0.147297729
+Log gubitak:                  0.470703657
+Bootstrap 95% interval:       [1.218942, 1.292188]
+Slučajno očekivanje:          1.256410
+
+Naučene težine konteksta
+-------------------------
+Kontekst  256: 0.228014205
+Kontekst  512: 0.242074410
+Kontekst 1024: 0.252943075
+Kontekst 2048: 0.276968310
+
+----------------------------------------------------------------------------------------
+Loto — ZAKLJUČANI ZAVRŠNI HOLDOUT
+----------------------------------------------------------------------------------------
+  TimesFM prognoze: 400/400
+
+Zaključani holdout rezultat
+---------------------------
+Broj provera:                 100
+Prosečan broj pogodaka:       1.430000
+Medijana pogodaka:            1.00
+Najmanje pogodaka:            0
+Najviše pogodaka:             4
+Potpuno tačnih predikcija:    0
+MAE:                          0.294528913
+Brier skor:                   0.147283753
+Log gubitak:                  0.470656533
+Bootstrap 95% interval:       [1.260000, 1.610000]
+Slučajno očekivanje:          1.256410
+
+----------------------------------------------------------------------------------------
+Loto — NEXT
+----------------------------------------------------------------------------------------
+  TimesFM prognoze: 4/4
+NEXT po TimesFM skoru:         01, x, 04, y, 17, z, 23
+NEXT sortirano:                01, x, 04, y, 17, z, 23
+NEXT rang:                     89,023
+Zbir kalibrisanih verovatnoća: 7.000000000
+Prosečna kvantilna širina:     0.916380492
+
+Rangiranje svih 39 brojeva
+---------------------------
+Mesto   Broj     Verovatnoća
+    1     23     0.196462201
+    2      1     0.192706233
+    3     17     0.190483672
+    4     18     0.187860076
+    5     11     0.187720068
+    6      2     0.184312562
+    7      4     0.184147515
+    8     32     0.183835164
+    9     20     0.183747653
+   10      8     0.182814883
+   11     15     0.182620643
+   12     25     0.181774858
+   13      3     0.181452594
+   14     33     0.180891147
+   15     27     0.180765975
+   16     31     0.180685003
+   17     19     0.180009254
+   18      9     0.179815924
+   19     21     0.179754035
+   20     39     0.179426628
+   21      6     0.178791307
+   22     36     0.178328422
+   23      7     0.178108489
+   24     14     0.177202087
+   25     16     0.176718481
+   26     10     0.176456987
+   27     29     0.176216729
+   28      5     0.176108751
+   29     30     0.176103663
+   30     37     0.175423936
+   31     24     0.175421571
+   32     35     0.174178616
+   33     34     0.173659385
+   34     22     0.173540366
+   35     26     0.172906699
+   36     13     0.172773475
+   37     28     0.170206694
+   38     12     0.169267060
+   39     38     0.167301193
+
+========================================================================================
+Obrada: Loto Plus
+========================================================================================
+CSV: /data/loto7_4684_k73_loto_plus_1720.csv
+Broj redova: 1,720
+Prvi red se tretira kao najstariji.
+Poslednji red se tretira kao najnoviji.
+Pravljenje 39 binarnih, gap i EWMA serija...
+
+Razvojni walk-forward koraci: 1,364
+Zaključani holdout koraci:     100
+
+----------------------------------------------------------------------------------------
+Loto Plus — PUNI EXPANDING WALK-FORWARD
+----------------------------------------------------------------------------------------
+  TimesFM prognoze: 5,456/5,456
+
+Walk-forward rezultat
+---------------------
+Broj provera:                 1,364
+Prosečan broj pogodaka:       1.236070
+Medijana pogodaka:            1.00
+Najmanje pogodaka:            0
+Najviše pogodaka:             5
+Potpuno tačnih predikcija:    0
+MAE:                          0.294567396
+Brier skor:                   0.147328816
+Log gubitak:                  0.470809879
+Bootstrap 95% interval:       [1.186950, 1.285191]
+Slučajno očekivanje:          1.256410
+
+Naučene težine konteksta
+-------------------------
+Kontekst  256: 0.231180108
+Kontekst  512: 0.261914302
+Kontekst 1024: 0.259511021
+Kontekst 2048: 0.247394568
+
+----------------------------------------------------------------------------------------
+Loto Plus — ZAKLJUČANI ZAVRŠNI HOLDOUT
+----------------------------------------------------------------------------------------
+  TimesFM prognoze: 400/400
+
+Zaključani holdout rezultat
+---------------------------
+Broj provera:                 100
+Prosečan broj pogodaka:       1.230000
+Medijana pogodaka:            1.00
+Najmanje pogodaka:            0
+Najviše pogodaka:             3
+Potpuno tačnih predikcija:    0
+MAE:                          0.294557313
+Brier skor:                   0.147315158
+Log gubitak:                  0.470763471
+Bootstrap 95% interval:       [1.050000, 1.410000]
+Slučajno očekivanje:          1.256410
+
+----------------------------------------------------------------------------------------
+Loto Plus — NEXT
+----------------------------------------------------------------------------------------
+  TimesFM prognoze: 4/4
+NEXT po TimesFM skoru:         03, x, 16, y, 26, z, 35
+NEXT sortirano:                03, x, 16, y, 26, z, 35
+NEXT rang:                     6,761,717
+Zbir kalibrisanih verovatnoća: 7.000000000
+Prosečna kvantilna širina:     0.890607126
+
+Rangiranje svih 39 brojeva
+---------------------------
+Mesto   Broj     Verovatnoća
+    1      3     0.191669325
+    2     26     0.188071843
+    3     35     0.187185608
+    4     28     0.186613280
+    5     13     0.185826264
+    6     17     0.185538855
+    7     16     0.184544277
+    8     30     0.184468114
+    9     23     0.183569935
+   10     38     0.183197623
+   11     20     0.182708634
+   12     22     0.182231626
+   13     27     0.181074213
+   14      5     0.181031630
+   15     12     0.180784720
+   16      9     0.180328008
+   17     29     0.179950760
+   18      6     0.179595320
+   19     37     0.179322574
+   20     18     0.178936445
+   21     11     0.178783690
+   22      7     0.178733009
+   23     36     0.178456339
+   24      8     0.178204156
+   25      4     0.178202203
+   26     21     0.177510864
+   27     32     0.177451651
+   28     15     0.177241125
+   29     31     0.176321324
+   30     10     0.175496111
+   31     33     0.175435719
+   32     24     0.173772805
+   33     39     0.173697681
+   34     34     0.173691206
+   35     14     0.173504415
+   36     25     0.173389488
+   37      1     0.172795751
+   38     19     0.171338447
+   39      2     0.169324961
+
+########################################################################################
+Loto — KONTROLNA LISTA
+########################################################################################
+Učitavanje i provera CSV podataka                      PROŠLO         redova=2,964
+Prvi red je najstariji, poslednji najnoviji            PROŠLO
+TimesFM 3.0 MLX-native backend                         PROŠLO         Apple Silicon
+39-varijantna binarna vremenska serija                 PROŠLO
+Gap kovarijate                                         PROŠLO         39 serija
+EWMA distribucijske kovarijate                         PROŠLO         39 serija
+Konteksti 256, 512, 1024 i 2048                        PROŠLO
+TimesFM tačkasta prognoza                              PROŠLO
+TimesFM q10–q90 kvantilna procena                      PROŠLO
+Kalibracija zbirne verovatnoće na sedam                PROŠLO
+Puni expanding walk-forward                            PROŠLO         provera=2,608
+Težine naučene samo na razvojnom periodu               PROŠLO
+Zaključani završni holdout                             PROŠLO         provera=100
+Bootstrap interval pouzdanosti od 95%                  PROŠLO         [1.2600, 1.6100]
+Bez budućih kovarijata i curenja podataka              PROŠLO
+Jedna NEXT predikcija                                  PROŠLO
+
+########################################################################################
+Loto Plus — KONTROLNA LISTA
+########################################################################################
+Učitavanje i provera CSV podataka                      PROŠLO         redova=1,720
+Prvi red je najstariji, poslednji najnoviji            PROŠLO
+TimesFM 3.0 MLX-native backend                         PROŠLO         Apple Silicon
+39-varijantna binarna vremenska serija                 PROŠLO
+Gap kovarijate                                         PROŠLO         39 serija
+EWMA distribucijske kovarijate                         PROŠLO         39 serija
+Konteksti 256, 512, 1024 i 2048                        PROŠLO
+TimesFM tačkasta prognoza                              PROŠLO
+TimesFM q10–q90 kvantilna procena                      PROŠLO
+Kalibracija zbirne verovatnoće na sedam                PROŠLO
+Puni expanding walk-forward                            PROŠLO         provera=1,364
+Težine naučene samo na razvojnom periodu               PROŠLO
+Zaključani završni holdout                             PROŠLO         provera=100
+Bootstrap interval pouzdanosti od 95%                  PROŠLO         [1.0500, 1.4100]
+Bez budućih kovarijata i curenja podataka              PROŠLO
+Jedna NEXT predikcija                                  PROŠLO
+
+########################################################################################
+KONAČNE NEXT PREDIKCIJE
+########################################################################################
+
+Loto
+====
+NEXT:                            01, x, 04, y, 17, z, 23
+NEXT rang:                       89,023
+CSV redova:                      2,964
+Razvojnih walk-forward koraka:   2,608
+Zaključanih holdout koraka:       100
+Walk-forward prosek pogodaka:     1.256135
+Walk-forward 95% interval:        [1.218942, 1.292188]
+Holdout prosek pogodaka:          1.430000
+Holdout 95% interval:             [1.260000, 1.610000]
+Slučajno očekivanje pogodaka:     1.256410
+Razlika prema slučajnom:          +0.173590
+Pouzdano iznad slučajnog:         DA
+
+Loto Plus
+=========
+NEXT:                            03, x, 16, y, 26, z, 35
+NEXT rang:                       6,761,717
+CSV redova:                      1,720
+Razvojnih walk-forward koraka:   1,364
+Zaključanih holdout koraka:       100
+Walk-forward prosek pogodaka:     1.236070
+Walk-forward 95% interval:        [1.186950, 1.285191]
+Holdout prosek pogodaka:          1.230000
+Holdout 95% interval:             [1.050000, 1.410000]
+Slučajno očekivanje pogodaka:     1.256410
+Razlika prema slučajnom:          -0.026410
+Pouzdano iznad slučajnog:         NE
+
+Ukupno vreme izvršavanja:         13227.86 sekundi
 """
 
 
