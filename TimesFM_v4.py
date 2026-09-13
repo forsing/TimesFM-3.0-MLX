@@ -94,7 +94,7 @@ UKUPNO_MOGUCIH_KOMBINACIJA = math.comb(
 
 
 ZAJEDNICKI_CSV = Path(
-    "/Users/4c/Desktop/GHQ/data/"
+    "/data/"
     "loto7_4684_k73.csv"
 )
 
