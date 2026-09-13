@@ -1883,8 +1883,176 @@ if __name__ == "__main__":
 
 
 """
+########################################################################################
+LOTO 7/39 — TIMESFM 3.0 MLX FINAL ZA APPLE SILICON
+########################################################################################
+Seed:                              39
+Model:                             google/timesfm-3.0-pytorch
+Backend:                           MLX-native
+MLX paket:                         32
+TimesFM horizont:                  1
+TimesFM Z-normalizacija:           uključena
+TimesFM padding:                   edge
+Simetrično prosečavanje:           isključeno
+Teorijska stopa broja:             0.179487179
+Teorijsko očekivanje pogodaka:     1.256410256
+Ukupno mogućih kombinacija:        15,380,937
+Učitavanje TimesFM 3.0 MLX modela...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Model učitan za 2.71 sekundi.
 
+========================================================================================
+Obrada: Loto 7/39
+========================================================================================
+CSV: /data/loto7_4684_k73.csv
+Broj redova: 4,684
+Prvi red se tretira kao najstariji.
+Poslednji red se tretira kao najnoviji.
+Pravljenje 39 binarnih, gap i EWMA serija...
+
+Razvojni walk-forward koraci: 4,328
+Zaključani holdout koraci:     100
+
+----------------------------------------------------------------------------------------
+Loto 7/39 — PUNI EXPANDING WALK-FORWARD
+----------------------------------------------------------------------------------------
+  TimesFM prognoze: 17,312/17,312
+
+Walk-forward rezultat
+---------------------
+Broj provera:                 4,328
+Prosečan broj pogodaka:       1.263632
+Medijana pogodaka:            1.00
+Najmanje pogodaka:            0
+Najviše pogodaka:             5
+Potpuno tačnih predikcija:    0
+MAE:                          0.294535501
+Brier skor:                   0.147292703
+Log gubitak:                  0.470686098
+Bootstrap 95% interval:       [1.235438, 1.290203]
+Slučajno očekivanje:          1.256410
+
+Naučene težine konteksta
+-------------------------
+Kontekst  256: 0.236834962
+Kontekst  512: 0.249453740
+Kontekst 1024: 0.246783557
+Kontekst 2048: 0.266927741
+
+----------------------------------------------------------------------------------------
+Loto 7/39 — ZAKLJUČANI ZAVRŠNI HOLDOUT
+----------------------------------------------------------------------------------------
+  TimesFM prognoze: 400/400
+
+Zaključani holdout rezultat
+---------------------------
+Broj provera:                 100
+Prosečan broj pogodaka:       1.280000
+Medijana pogodaka:            1.00
+Najmanje pogodaka:            0
+Najviše pogodaka:             4
+Potpuno tačnih predikcija:    0
+MAE:                          0.294537094
+Brier skor:                   0.147294340
+Log gubitak:                  0.470696870
+Bootstrap 95% interval:       [1.090000, 1.480000]
+Slučajno očekivanje:          1.256410
+
+----------------------------------------------------------------------------------------
+Loto 7/39 — NEXT
+----------------------------------------------------------------------------------------
+  TimesFM prognoze: 4/4
+NEXT po TimesFM skoru:         03, x, 13, y, 21, z, 27
+NEXT sortirano:                03, x, 13, y, 21, z, 27
+NEXT rang:                     6,049,752
+Zbir kalibrisanih verovatnoća: 7.000000000
+Prosečna kvantilna širina:     0.879996868
+
+Rangiranje svih 39 brojeva
+---------------------------
+Mesto   Broj     Verovatnoća
+    1     26     0.193753619
+    2     21     0.193468187
+    3      3     0.190196262
+    4     15     0.189222657
+    5      7     0.184659855
+    6     27     0.184433890
+    7     13     0.183877381
+    8     25     0.183860503
+    9      9     0.183309730
+   10      4     0.183263974
+   11      6     0.183133162
+   12     12     0.182485506
+   13     36     0.181790566
+   14     30     0.181353601
+   15     17     0.180369164
+   16     23     0.180247670
+   17     11     0.179864503
+   18     33     0.179747445
+   19     32     0.179299766
+   20     10     0.179199060
+   21     35     0.178830264
+   22     18     0.178509848
+   23     16     0.178370369
+   24      2     0.178294801
+   25     14     0.177720581
+   26     28     0.177223770
+   27     39     0.177091671
+   28     38     0.176944495
+   29     22     0.176117103
+   30     29     0.175550687
+   31      1     0.175146918
+   32     37     0.175078931
+   33     20     0.174586564
+   34     34     0.173514026
+   35     31     0.171470916
+   36     19     0.170790532
+   37      5     0.170448440
+   38      8     0.170442905
+   39     24     0.166330678
+
+########################################################################################
+Loto 7/39 — KONTROLNA LISTA
+########################################################################################
+Učitavanje i provera CSV podataka                      PROŠLO         redova=4,684
+Prvi red je najstariji, poslednji najnoviji            PROŠLO
+TimesFM 3.0 MLX-native backend                         PROŠLO         Apple Silicon
+39-varijantna binarna vremenska serija                 PROŠLO
+Gap kovarijate                                         PROŠLO         39 serija
+EWMA distribucijske kovarijate                         PROŠLO         39 serija
+Konteksti 256, 512, 1024 i 2048                        PROŠLO
+TimesFM tačkasta prognoza                              PROŠLO
+TimesFM q10–q90 kvantilna procena                      PROŠLO
+Kalibracija zbirne verovatnoće na sedam                PROŠLO
+Puni expanding walk-forward                            PROŠLO         provera=4,328
+Težine naučene samo na razvojnom periodu               PROŠLO
+Zaključani završni holdout                             PROŠLO         provera=100
+Bootstrap interval pouzdanosti od 95%                  PROŠLO         [1.0900, 1.4800]
+Bez budućih kovarijata i curenja podataka              PROŠLO
+Jedna NEXT predikcija                                  PROŠLO
+
+########################################################################################
+KONAČNA NEXT PREDIKCIJA
+########################################################################################
+
+Loto 7/39
+=========
+NEXT:                            03, x, 13, y, 21, z, 27
+NEXT rang:                       6,049,752
+CSV redova:                      4,684
+Razvojnih walk-forward koraka:   4,328
+Zaključanih holdout koraka:       100
+Walk-forward prosek pogodaka:     1.263632
+Walk-forward 95% interval:        [1.235438, 1.290203]
+Holdout prosek pogodaka:          1.280000
+Holdout 95% interval:             [1.090000, 1.480000]
+Slučajno očekivanje pogodaka:     1.256410
+Razlika prema slučajnom:          +0.023590
+Pouzdano iznad slučajnog:         NE
+
+Ukupno vreme izvršavanja:         14909.47 sekundi
 """
+
 
 
 """
