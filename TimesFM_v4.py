@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from __future__ import annotations
 
 """
 Apple Silicon: MLX backend
@@ -37,8 +38,6 @@ Uče se samo završne težine različitih dužina konteksta.
 Nema budućih kovarijata jer njihove stvarne buduće vrednosti nisu poznate.
 Time se sprečava curenje budućih informacija.
 """
-
-from __future__ import annotations
 
 import math
 import random
