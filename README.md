@@ -20,7 +20,7 @@ ABBREVIATED LOTTO SYSTEMS
 svih 4684 izvlacenja
 30.07.1985.- 11.09.2026.
 loto    2964 kombinacija
-loto+   1720 kombinacija
+loto+   17 kombinacija
 
 
 Report abuse: 
